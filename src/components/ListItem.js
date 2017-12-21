@@ -5,9 +5,9 @@ class ListItem extends Component {
         return (
             <li className="bag-item">
                 <div className="item-name">{this.props.name}</div>
+                <div className="item-isMax">{this.props.isMax ? '⭐' : ''}</div>  
                 <div className="item-money">{this.props.bag}</div>
-                <div className="item-rest">{this.props.rest}</div> 
-                <div className="item-isMax">{this.props.isMax ? `最佳手气` : ''}</div>                         
+                <div className="item-rest">{this.props.rest}</div>                        
             </li>
         )
     }

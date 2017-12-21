@@ -1,5 +1,131 @@
+html {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+label {
+  font-size: 1.1rem;
+}
+
+input {
+  width: 100%;
+  padding: 10px 0px;
+  margin: 8px auto;
+  border: none;
+}
+
+.wrapper-input {
+  min-height: 402px;
+  border-radius: 20px;
+  width: 260px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #d1d1d1;
+  background: rgb(255, 93, 72);
+  color: white;
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0px auto 35px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  font-weight: normal;
+}
+
+.input-field {
+  margin-top: 30px;
+  position: relative;
+}
+
+.alert-info {
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  color: rgb(255, 230, 100);
+}
+
+.send-bag {
+  font-size: 1.2rem;
+  background: rgb(235, 76, 54);
+  margin: 50px auto 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.white {
+  position: relative;
+}
+
+.circle-field {
+  position: absolute;
+  left: 0;
+  top: 70px;
+  height: 80px;
+  width: 300px;
+  background: rgb(255, 199, 196);
+  border-radius: 50% 50% 0 0; 
+}
+
+.block-field {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  height: 190px;
+  width: 300px;
+  background: rgb(255, 199, 196);
+}
+
+.show-field {
+  margin-bottom: 45px;
+}
+.money-field {
+  text-align: center;
+}
+
+.list-field {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 -20px;
+  z-index: 1;
+  color: rgb(160, 89, 89);
+  max-height: 210px;
+  overflow: auto;
+}
+
+.bag-item {
+  box-sizing: border-box;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.item-name, .item-money, .item-rest {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.item-isMax {
+  display: inline-block;
 }

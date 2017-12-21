@@ -6,10 +6,11 @@ import BagList from './BagList'
 class Complete extends Component {
     render() {
         return (
-            <div>
-                
+            <div className="wrapper-input white">
                 <BagList />
-                <Link to='/'>返回</Link>
+                <div className="send-bag">
+                    <Link to='/'>返回</Link>
+                </div>
             </div>
         )
     }

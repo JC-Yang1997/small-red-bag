@@ -15,17 +15,18 @@ class InputItem extends Component {
     }
 
     handlePeopleNumber(e) {
-        var v = e.target.value
-        if (Number(v) < 1) {
+        var v = e.target.value + ''
+        console.log(v)
+        if (/\D/.test(v)) {
             this.setState({
-                people: v,
-                text1: '人数不得小于1'
+                people: v.replace(/\D/, ''),
+                text1: '人数必须为整数'
             })
             return false
-        } else if (/\./.test(v + '')) {
+        } else if (/^[0]/.test(v)) {
             this.setState({
-                people: v,
-                text1: '人数必须为整数'
+                people: v.replace(/^[0]/, ''),
+                text1: '人数必须大于0'
             })
             return false
         } else {
@@ -38,13 +39,19 @@ class InputItem extends Component {
 
     handleMoneyNumber(e) {
         var v = e.target.value
-        if (Number(v) < 0.01) {
+        if (+v !== Number(v)) {
             this.setState({
-                money: v,
-                text2: '钱数不得小于0.01'
+                money: v.replace(/\D$/, ''),
+                text2: '钱数必须是数字'
             })
             return false
-        } else {
+        } else if (Number(v) < 0.01) {
+            this.setState({
+                money: v,
+                text2: '钱数必须大于0.01'
+            })
+            return false
+        } else{
             this.setState({
                 money: v,
                 text2: '',
@@ -59,43 +66,51 @@ class InputItem extends Component {
         && (this.state.money)
         && (this.props.onSubmit)) {
             const { people, money } = this.state
-            this.props.onSubmit({ people, money })
+            if (Number(money) < 0.01 * Number(people)) {
+                this.setState({
+                    text2: '平均金额不能小于0.01'
+                })
+                e.preventDefault()
+            } else {
+                this.props.onSubmit({ people, money })
+                this.setState({
+                    people: '',
+                    money: '',
+                })
+            }
         } else {
             e.preventDefault()
         }
-        this.setState({
-            people: '',
-            money: '',
-        })
     }
 
     render() {
  
         return (
             <div className="wrapper-input">
-                <div className="input-feild">
-                    <div className="input-people-field">
+                <h2 className="input-title">发红包</h2>
+                <div className="input-block">
+                    <div className="input-field">
                         <div className="input-people">
                             <label>请输入人数</label>
-                            <input type="number" 
+                            <input type="text" 
                             value={this.state.people}
                             onChange={this.handlePeopleNumber.bind(this)}
                             autoFocus/>
                         </div>
                         <Info text={this.state.text1}/>
                     </div>
-                    <div className="input-money-field">
+                    <div className="input-field">
                         <div className="input-money">
                             <label>请输入金额</label>
-                            <input type="number" 
+                            <input type="text" 
                             value={this.state.money}
                             onChange={this.handleMoneyNumber.bind(this)} />
                         </div>
                         <Info text={this.state.text2}/>
                     </div>
                 </div> 
-                <div>
-                    <Link to="/complete" onClick={this.handleSubmit.bind(this)}>发</Link>
+                <div className="send-bag">
+                    <Link to="/complete" onClick={this.handleSubmit.bind(this)}>发红包</Link>
                 </div>          
             </div>
         )
