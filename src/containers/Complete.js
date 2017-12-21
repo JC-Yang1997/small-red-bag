@@ -7,7 +7,7 @@ class Complete extends Component {
     render() {
         return (
             <div>
-                收红包
+                
                 <BagList />
                 <Link to='/'>返回</Link>
             </div>

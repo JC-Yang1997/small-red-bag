@@ -4,13 +4,29 @@ function setBags(people, money) {
     people = +people
     money = +money
     var bags = []
-    var currsum = 0
-    for (var i = 0; i < people - 1; i++) {
-        var ave = ((money - currsum) / (people - i))
-        bags[i] = ((Math.random() + 0.01) * (ave * 2)).toFixed(2)
-        currsum += +bags[i]
+    var currsum = 0, index = 0, lastMax = 0
+    for (var i = 0; i < people; i++) {
+        let bag = {}
+        if (i === people - 1) {
+            bag.bag = (money - currsum).toFixed(2)
+            bag.rest = 0
+        } else {
+            var ave = ((money - currsum) / (people - i))
+            bag.bag = ((Math.random() + 0.01) * (ave * 2)).toFixed(2)
+            currsum += +bag.bag
+            bag.rest = (money - currsum).toFixed(2)
+        }
+        if (i === 0) {
+            index = 0
+            lastMax = bag.bag
+        } else if (bag.bag > lastMax) {
+            index = i
+            lastMax = bag.bag
+        } 
+        bags.push(bag)
     }
-    bags[people - 1] = (money - currsum).toFixed(2)
+    bags[index].isMax = true
+    // console.log(bags)
     return bags
 }
 
@@ -19,7 +35,7 @@ function reducer(state, action) {
         return {
             people: '',
             money: '',
-            bags: [0],
+            bags: [{bag: 0, rest: 0}],
         }
     }
     

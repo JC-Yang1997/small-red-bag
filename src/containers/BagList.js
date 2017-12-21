@@ -15,7 +15,9 @@ class BagList extends Component {
             <ul>
                 {this.props.bags.map((bag, i) => 
                     <ListItem name={`第${i+1}个`}
-                              bag={`${bag}元`}
+                              isMax={bag.isMax === true ? true : false}
+                              bag={`获得${bag.bag}元`}
+                              rest={`剩余${bag.rest}元`}
                               key={i} />
                 )}
             </ul>

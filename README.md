@@ -1,21 +1,5 @@
 问题：
 
-想在`reducer`中对`action.people`和`action.money`进行处理后返回bags，但是并没有调用，不知道是为什么...
+在将input作为react受控组件进行验证输入时，可以采取随时验证的方法，比如下面弹出个提示框，而不是弹出对话框。
 
-```js
-// 上面有setBags
-
-switch (action.type) {
-    case SET_ARGU:
-    var bags = setBags(action.people, action.money)
-        return {
-            ...state, 
-            people: action.people,
-            money: action.money,
-            bags: bags,
-        }
-
-    default: 
-        return state
-}
-```
+想在`reducer`中对`action.people`和`action.money`进行处理后返回bags，但是并没有调用，后来发现是解构赋值语法的问题啊...还是需要细心
