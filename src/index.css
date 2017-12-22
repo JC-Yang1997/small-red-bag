@@ -112,7 +112,7 @@ h2 {
   margin: 0 -20px;
   z-index: 1;
   color: rgb(160, 89, 89);
-  max-height: 210px;
+  height: 210px;
   overflow: auto;
 }
 
@@ -128,4 +128,96 @@ h2 {
 
 .item-isMax {
   display: inline-block;
+}
+
+/* 动画 */
+.animate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  bottom: 0;
+  background: rgb(235, 76, 54);
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.mask1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px 20px 0 0;
+  width: 300px;
+  height: 80px;
+  background: rgb(255, 93, 72);
+}
+
+.hide {
+  animation: visibleChange 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes visibleChange {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 20%;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.mask2 {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 300px;
+  height: 200px;
+  border-radius: 0 0 50% 50%;
+  background: rgb(255, 93, 72);
+}
+
+.change {
+  animation: heightChange 1s ease-in-out forwards;
+}
+
+@keyframes heightChange {
+  0% {
+    height: 200px;
+  }
+  50% {
+    height: 220px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+.open {
+  cursor: pointer;
+  position: absolute;
+  top: 240px;
+  left: calc(50% - 40px);
+  font-size: 30px;
+  width: 80px;
+  line-height: 80px;
+  text-align: center;
+  color: black;
+  background: rgb(255, 212, 1);
+  border-radius: 40px;
+  animation: myrotate 1.5s ease-in-out infinite;
+}
+
+@keyframes myrotate {
+  0% {
+    transform:rotateY(0deg);
+  }
+  50% {
+    transform:rotateY(180deg);
+  }
+  100% {
+    transform:rotateY(0eg);
+  }
 }
