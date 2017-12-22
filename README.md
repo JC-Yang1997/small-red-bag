@@ -4,6 +4,7 @@
 ```
 git clone https://github.com/onlyliubara/small-red-bag.git
 cd small-red-bag 
+npm install
 npm start
 ```
 
