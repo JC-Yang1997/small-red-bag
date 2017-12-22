@@ -27,10 +27,12 @@ label {
 }
 
 input {
+  box-sizing: border-box;
   width: 100%;
-  padding: 10px 0px;
+  padding: 10px 10px;
   margin: 8px auto;
   border: none;
+  border-radius: 8px;
 }
 
 .wrapper-input {
@@ -40,7 +42,7 @@ input {
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #d1d1d1;
-  background: rgb(255, 93, 72);
+  background: #d45657;
   color: white;
 }
 
@@ -67,7 +69,7 @@ h2 {
 
 .send-bag {
   font-size: 1.2rem;
-  background: rgb(235, 76, 54);
+  background: #e07f79;
   margin: 50px auto 10px;
   padding: 10px;
   text-align: center;
@@ -86,7 +88,7 @@ h2 {
   top: 70px;
   height: 80px;
   width: 300px;
-  background: rgb(255, 199, 196);
+  background: #ffefef;
   border-radius: 50% 50% 0 0; 
 }
 
@@ -96,7 +98,7 @@ h2 {
   left: 0;
   height: 190px;
   width: 300px;
-  background: rgb(255, 199, 196);
+  background: #ffefef;
 }
 
 .show-field {
@@ -137,7 +139,7 @@ h2 {
   left: 0;
   width: 300px;
   bottom: 0;
-  background: rgb(235, 76, 54);
+  background: #bd4a43;
   border-radius: 20px;
   z-index: 10;
 }
@@ -149,11 +151,29 @@ h2 {
   border-radius: 20px 20px 0 0;
   width: 300px;
   height: 80px;
-  background: rgb(255, 93, 72);
+  background: #d45657;
+}
+
+.change1 {
+  animation: heightChange1 0.5s ease-out forwards 1s;
+}
+
+@keyframes heightChange1 {
+  0% {
+    height: 80px;
+  }
+  50% {
+    height: 20px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+  }
 }
 
 .hide {
-  animation: visibleChange 0.5s ease-in-out 1s forwards;
+  animation: visibleChange 0.2s ease-in-out 1.5s forwards;
 }
 
 @keyframes visibleChange {
@@ -176,11 +196,11 @@ h2 {
   width: 300px;
   height: 200px;
   border-radius: 0 0 50% 50%;
-  background: rgb(255, 93, 72);
+  background: #d45657;
 }
 
 .change {
-  animation: heightChange 1s ease-in-out forwards;
+  animation: heightChange 1s ease-in forwards;
 }
 
 @keyframes heightChange {
@@ -205,7 +225,7 @@ h2 {
   line-height: 80px;
   text-align: center;
   color: black;
-  background: rgb(255, 212, 1);
+  background: #fedd98;
   border-radius: 40px;
   animation: myrotate 1.5s ease-in-out infinite;
 }
